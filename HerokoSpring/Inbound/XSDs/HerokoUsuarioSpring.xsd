@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org"
+            targetNamespace="http://www.example.org" elementFormDefault="qualified">
+  <xsd:element name="exampleElement">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ConsultaUsuario">
+    <xsd:sequence>
+      <xsd:element name="IdUsuario" type="xsd:long" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ResponseUsuario">
+    <xsd:sequence>
+      <xsd:element name="GrupoUsuario" maxOccurs="unbounded" minOccurs="0" type="Usuario"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Usuario">
+    <xsd:sequence>
+      <xsd:element name="IdUsuario" maxOccurs="1" type="xsd:integer"/>
+      <xsd:element name="Nome" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="Email" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="Fone" type="xsd:long" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="typeAcao">
+    <xsd:restriction>
+      <xsd:simpleType>
+        <xsd:list/>
+      </xsd:simpleType>
+      <xsd:enumeration value="INCL"/>
+      <xsd:enumeration value="ATUA"/>
+      <xsd:enumeration value="EXCL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>
